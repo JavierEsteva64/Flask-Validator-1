@@ -6,7 +6,11 @@ app = Flask(__name__)
 def validate_script():
     data = request.get_json()
     script = data.get("script", "")
-    
+
+    @app.route("/", methods=["GET"])
+def home():
+    return "Hello from Flask Validator"
+
     banned_phrases = [
         "a recent study", "in the ever-evolving world of", "dynamic", "fast-changing",
         "ultimate", "comprehensive", "enhance", "uncover", "realm", "imagine a world where",
